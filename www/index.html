@@ -346,7 +346,7 @@
     <h2 id="approval"></h2>
     <p></p>
     <svg id="rollercoaster"></svg>
-    <div id="box" data-0="left[pathx]:0%;top[pathy]:0%;transform[angle]:rotate(0deg);" data-2000="left[pathx]:90%;top[pathy]:90%;transform[angle]:rotate(180deg);"></div>
+    <div id="box" data-0-top-top="left[pathx]:0%;top[pathy]:0%;transform[angle]:rotate(0deg);" data-2000-top-top="left[pathx]:90%;top[pathy]:90%;transform[angle]:rotate(180deg);"></div>
     <svg
         xmlns:dc="http://purl.org/dc/elements/1.1/"
         xmlns:cc="http://creativecommons.org/ns#"
@@ -373,16 +373,39 @@ max-width: 1000px;
 min-width: 300px;
 }
 article p {
-font-family: 'PT Serif', serif;
-font-size: 24px;
+    font-family: 'PT Serif', serif;
+    font-size: 24px;
+    line-height: 30px;
+}
+h1, h2, h3, h4, h5 {
+    font-family: 'Open Sans Condensed', sans-serif;
+}
+h1 {
+    font-size: 120px;
+    color: red;
+    margin: 40px auto;
+    text-align: center;
+}
+h2 {
+    font-size: 30px;
+    color: red;
+}
+h3 {
+    font-size: 40px;
+    color: #333;
+}
+h3 span {
+    color: #999;
+}
+h3 span:before {
+    content: '– ';
 }
 
 
 h3 {
-  padding: 10px 20px;
+  padding: 10px 0;
   position: relative;
   z-index: 1;
-  color: #fff;
 }
 
 h3.fixed {
@@ -441,7 +464,7 @@ $(document).ready(function(){ trump.init(); });
     });
 </script>
   <article>
-     <div>
+     <div id="skrollr-body">
 <h3>Day 1 <span>Jan. 20</span></h3>
  </p><p>
 With a scowling Melania seated behind him, President Trump uses his inaugural address to boast that “America will start winning again, winning like never before.”</p><p>
@@ -496,7 +519,9 @@ Trump speaks by phone with Saudi King Salman bin Abdul Aziz.</p><p>
     </div>
   </article>
         <!-- CUSTOM CSS GOES HERE-->
+<!--
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/foundation/5.5.2/css/foundation.css" />
+-->
         <link href="../css/style.css?v2" rel="stylesheet" type="text/css" />
 
         <!-- CUSTOM JS GOES HERE-->
