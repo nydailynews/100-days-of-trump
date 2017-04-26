@@ -388,8 +388,14 @@ h3.fixed.absolute {
 <script>
 var trump = {
     config: {},
-    init: function() {}
+    init: function() {
+        $.each($('h3'), function(index, value) {
+            var id = 'i-' + index;
+            $(this).attr('id', id);
+        });
+    }
 };
+$(document).ready(function(){ trump.init(); });
 </script>
   <article>
      <div>
