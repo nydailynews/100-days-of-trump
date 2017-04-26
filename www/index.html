@@ -362,7 +362,6 @@ font-size: 24px;
 
 
 h3 {
-  background: #e64a19;
   padding: 10px 20px;
   position: relative;
   z-index: 1;
@@ -388,97 +387,6 @@ var trump = {
     config: {},
     init: function() {}
 };
-
-// Multiple sticky titles via https://codepen.io/chrissp26/pen/gBrdo
-var stickyHeaders = (function() {
-  var $window = $('article'),
-      $stickies;
-  var load = function(stickies) {
-    if (typeof stickies === "object" && stickies instanceof jQuery && stickies.length > 0) {
-      $stickies = stickies.each(function() {
-        var $thisSticky = $(this).wrap('<div class="followWrap" />');
-        $thisSticky
-            .data('originalPosition', $thisSticky.offset().top)
-            .data('originalHeight', $thisSticky.outerHeight())
-              .parent()
-              .height($thisSticky.outerHeight());               
-      });
-      $window.off("scroll.stickies").on("scroll.stickies", function() {
-          _whenScrolling();        
-      });
-    }
-  };
-
-  var _whenScrolling = function() {
-    $stickies.each(function(i) {            
-      var $thisSticky = $(this),
-          $stickyPosition = $thisSticky.data('originalPosition');
-      if ($stickyPosition <= $window.scrollTop()) {        
-        var $nextSticky = $stickies.eq(i + 1),
-            $nextStickyPosition = $nextSticky.data('originalPosition') - $thisSticky.data('originalHeight');
-        $thisSticky.addClass("fixed");
-        if ($nextSticky.length > 0 && $thisSticky.offset().top >= $nextStickyPosition) {
-          $thisSticky.addClass("absolute").css("top", $nextStickyPosition);
-        }
-      } else {
-        var $prevSticky = $stickies.eq(i - 1);
-        $thisSticky.removeClass("fixed");
-        if ($prevSticky.length > 0 && $window.scrollTop() <= $thisSticky.data('originalPosition') - $thisSticky.data('originalHeight')) {
-          $prevSticky.removeClass("absolute").removeAttr("style");
-        }
-      }
-    });
-  };
-
-  return {
-    load: load
-  };
-})();
-
-$(function() {
-  stickyHeaders.load($("h3"));
-});
-/* Feedify v1.2.0 by Sarah Dayan | https://sarahdayan.github.io/feedify */
-(function ($) {
-
-    $.fn.feedify = function(options) {
-
-        var feedify = this;
-        var settings = $.extend({
-            container: $(window),
-            offset: 0
-        }, options);
-
-        settings.container.bind('scroll touchmove load', function(e) {
-
-            feedify.children('.feedify-item').each(function() {
-                var itemHeader       = $(this).find('.feedify-item-header');
-                var itemBody         = $(this).find('.feedify-item-body');
-                var itemHeaderHeight = itemHeader.outerHeight();
-                var viewportOffset   = $(this).offset().top - settings.container.scrollTop() + settings.offset;
-                var switchPoint      = '-' + ($(this).height() - itemHeaderHeight - settings.offset);
-
-                if (viewportOffset < 0) {
-                    if (viewportOffset > switchPoint ? true : false) {
-                        $(this).addClass('fixed').removeClass('bottom');
-                    }
-                    else {
-                        $(this).removeClass('fixed').addClass('bottom');
-                    }
-                    itemBody.css('paddingTop', itemHeaderHeight);
-                    itemHeader.css('width', feedify.width());
-                    return;
-                }
-                $(this).removeClass('fixed').removeClass('bottom');
-                itemBody.css('paddingTop', '0');
-                itemHeader.css('width', 'auto');
-            });
-
-        });
-
-    };
-
-}(jQuery));
 </script>
   <article>
 <h3>Day 1 - Jan. 20:</h3>
