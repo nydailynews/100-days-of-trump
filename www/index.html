@@ -71,6 +71,7 @@
 
     <!-- ADOBE ANALYTICS -->
     <script src="//assets.adobedtm.com/4fc527d6fda921c80e462d11a29deae2e4cf7514/satelliteLib-c91fdc6ac624c6cbcd50250f79786de339793801.js"></script>
+    <script src="http://interactiveqa.nydailynews.com/work/eat-along-subway/js/vendor/jquery.js"></script>
 
     <link href='https://fonts.googleapis.com/css?family=Open%20Sans:400|Open+Sans+Condensed:300,700|PT+Serif' rel='stylesheet' type='text/css'>
     <script data-main="http://assets.nydailynews.com/nydn/js/rh.js?r=20170405001" src="http://assets.nydailynews.com/nydn/js/require.js?r=2016LIST" defer></script>
@@ -342,16 +343,9 @@
  </div> 
   <main>
     <h1>100 days</h1>
+    <h2 id="approval"></h2>
     <p></p>
-    <svg id="timeline"></svg>
-            <div class="side_ad center" style="margin-bottom: 20px;">
-                <div id='div-gpt-ad-1423507761396-2'>
-                <script>
-                googletag.cmd.push(function() { googletag.display('div-gpt-ad-1423507761396-2'); });
-                </script>
-                </div>
-            </div>
-
+    <svg id="rollercoaster"></svg>
 
 <style type="text/css">
 article {
@@ -365,22 +359,142 @@ article p {
 font-family: 'PT Serif', serif;
 font-size: 24px;
 }
+
+
+h3 {
+  background: #e64a19;
+  padding: 10px 20px;
+  position: relative;
+  z-index: 1;
+  color: #fff;
+}
+
+h3.fixed {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  box-sizing: border-box;
+  z-index: 0;
+}
+
+h3.fixed.absolute {
+  position: absolute;
+}
 </style>
+
+<script src="js/jquery.waypoints.js"></script>
+<script>
+var trump = {
+    config: {},
+    init: function() {}
+};
+
+// Multiple sticky titles via https://codepen.io/chrissp26/pen/gBrdo
+var stickyHeaders = (function() {
+  var $window = $('article'),
+      $stickies;
+  var load = function(stickies) {
+    if (typeof stickies === "object" && stickies instanceof jQuery && stickies.length > 0) {
+      $stickies = stickies.each(function() {
+        var $thisSticky = $(this).wrap('<div class="followWrap" />');
+        $thisSticky
+            .data('originalPosition', $thisSticky.offset().top)
+            .data('originalHeight', $thisSticky.outerHeight())
+              .parent()
+              .height($thisSticky.outerHeight());               
+      });
+      $window.off("scroll.stickies").on("scroll.stickies", function() {
+          _whenScrolling();        
+      });
+    }
+  };
+
+  var _whenScrolling = function() {
+    $stickies.each(function(i) {            
+      var $thisSticky = $(this),
+          $stickyPosition = $thisSticky.data('originalPosition');
+      if ($stickyPosition <= $window.scrollTop()) {        
+        var $nextSticky = $stickies.eq(i + 1),
+            $nextStickyPosition = $nextSticky.data('originalPosition') - $thisSticky.data('originalHeight');
+        $thisSticky.addClass("fixed");
+        if ($nextSticky.length > 0 && $thisSticky.offset().top >= $nextStickyPosition) {
+          $thisSticky.addClass("absolute").css("top", $nextStickyPosition);
+        }
+      } else {
+        var $prevSticky = $stickies.eq(i - 1);
+        $thisSticky.removeClass("fixed");
+        if ($prevSticky.length > 0 && $window.scrollTop() <= $thisSticky.data('originalPosition') - $thisSticky.data('originalHeight')) {
+          $prevSticky.removeClass("absolute").removeAttr("style");
+        }
+      }
+    });
+  };
+
+  return {
+    load: load
+  };
+})();
+
+$(function() {
+  stickyHeaders.load($("h3"));
+});
+/* Feedify v1.2.0 by Sarah Dayan | https://sarahdayan.github.io/feedify */
+(function ($) {
+
+    $.fn.feedify = function(options) {
+
+        var feedify = this;
+        var settings = $.extend({
+            container: $(window),
+            offset: 0
+        }, options);
+
+        settings.container.bind('scroll touchmove load', function(e) {
+
+            feedify.children('.feedify-item').each(function() {
+                var itemHeader       = $(this).find('.feedify-item-header');
+                var itemBody         = $(this).find('.feedify-item-body');
+                var itemHeaderHeight = itemHeader.outerHeight();
+                var viewportOffset   = $(this).offset().top - settings.container.scrollTop() + settings.offset;
+                var switchPoint      = '-' + ($(this).height() - itemHeaderHeight - settings.offset);
+
+                if (viewportOffset < 0) {
+                    if (viewportOffset > switchPoint ? true : false) {
+                        $(this).addClass('fixed').removeClass('bottom');
+                    }
+                    else {
+                        $(this).removeClass('fixed').addClass('bottom');
+                    }
+                    itemBody.css('paddingTop', itemHeaderHeight);
+                    itemHeader.css('width', feedify.width());
+                    return;
+                }
+                $(this).removeClass('fixed').removeClass('bottom');
+                itemBody.css('paddingTop', '0');
+                itemHeader.css('width', 'auto');
+            });
+
+        });
+
+    };
+
+}(jQuery));
+</script>
   <article>
-Day 1 - Jan. 20:</p><p>
+<h3>Day 1 - Jan. 20:</h3>
  </p><p>
 With a scowling Melania seated behind him, President Trump uses his inaugural address to boast that “America will start winning again, winning like never before.”</p><p>
  </p><p>
 He gets right to work, signing just hours later, a vague executive order aimed at rolling back Obamacare.</p><p>
- </p><p>
-Day 2 - Jan 21:</p><p>
- </p><p>
+ </p>
+<h3>Day 2 - Jan 21:</h3>
+<p>
 Armed with photos and sass, White House Press Secretary Sean Spicer holds a combative press conference where he rips the media for its “shameful” reporting about the inauguration and claims that the ceremony had the “largest audience to ever witness an inauguration, period, both in person and around the globe.”</p><p>
  </p><p>
 Trump visits the CIA, where he tells agents in a boastful address that, “you’re gonna get so much backing.”</p><p>
- </p><p>
-Day 3 - Jan. 22:</p><p>
- </p><p>
+ </p>
+<h3>Day 3 - Jan. 22:</h3>
+<p>
 In the first of many gaffes, Senior White House Aide Kellyanne Conway says Spicer was merely providing “alternative facts” when claimed that Trump’s inauguration crowd was the biggest ever.</p><p>
  </p><p>
 Day 4 - Jan. 23:</p><p>
