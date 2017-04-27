@@ -337,10 +337,8 @@
  </nav>
 </header>
 <!-- SITEHEADER-END -->
-
-
-
  </div> 
+
   <main>
 <style type="text/css">
 .scrollpos{
@@ -473,6 +471,11 @@ article img.left {
     position: fixed;
     top:-2230px;
 }
+@media screen and (max-width: 642px) {
+    h1 { font-size: 40px; }
+    article img.tweet { max-width: 100%; }
+    div#ani { display: none; }
+}
 </style>
 
 <script>
@@ -488,12 +491,16 @@ var trump = {
         trigger_height = 235;
         function scroll_fire()
         {
-            if ($(this).scrollTop() > 2000) return false;
-            if ($(this).scrollTop() > trigger_height)
+            var the_top = $(this).scrollTop();
+            if ( is_mobile ) the_top = window.pageYOffset;
+            console.log(document.querySelector('article'))
+            //window.alert(the_top + "hi" + document.pageYOffset);
+            if ( the_top > 2000) return false;
+            if ( the_top > trigger_height)
             {
                 $('#stage').addClass('scrolled');
             }
-            else if($(this).scrollTop() < trigger_height)
+            else if( the_top < trigger_height)
             {
                 $('#stage').removeClass('scrolled');
             }
@@ -501,6 +508,11 @@ var trump = {
             
         var did_scroll = 0;
         $(window).scroll(function() { did_scroll = 1; });
+        if ( is_mobile )
+        {
+            document.addEventListener("touchmove", function() { did_scroll = 1; }, false);
+            document.addEventListener("scroll", function() { did_scroll = 1; }, false);
+        }
         setInterval(function()
         {
             if ( did_scroll == 1 )
@@ -544,14 +556,16 @@ $(document).ready(function(){
         <h1>100 days of Trump</h1>
         <h2 id="approval"></h2>
 
-        <div id="image-wrapper">
-            <img src="img/big-coaster-cropped.jpg" alt="Roller coaster">
-        </div>
-        <div id="actor-wrapper">
-            <div id="actor"
-                data-235="left[pathx]:0%;top[pathy]:0%;transform[angle]:rotate(0deg);"
-                data-11000="left[pathx]:100%;top[pathy]:100%;transform[angle]:rotate(10deg);"
-                    ></div>
+        <div id="ani">
+            <div id="image-wrapper">
+                <img src="img/big-coaster-cropped.jpg" alt="Roller coaster">
+            </div>
+            <div id="actor-wrapper">
+                <div id="actor"
+                    data-235="left[pathx]:0%;top[pathy]:0%;transform[angle]:rotate(0deg);"
+                    data-11000="left[pathx]:100%;top[pathy]:100%;transform[angle]:rotate(10deg);"
+                        ></div>
+            </div>
         </div>
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 937.2 100">
             <defs><style>.a{fill:#f76d21;}</style></defs>
