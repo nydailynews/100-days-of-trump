@@ -57,3 +57,10 @@ article {
 @media only screen and (min-width: 800px) {
     #rh-subscribe { top:-30px!important; }
 }
+
+div.ad { width: 300px; }
+div.ad > span {
+    font-size:10px;
+    color:#999;
+    font-family:sans-serif;
+}
