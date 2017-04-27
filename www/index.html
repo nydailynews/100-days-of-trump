@@ -463,13 +463,21 @@ article img.left {
     font-size: 60px;
     margin: 15px auto;
 }
-#stage #image-wrapper { }
+.scrolled p { display: none; }
 #stage img {
     width: 100%;
 }
 #stage svg {
     position: fixed;
     top:-2230px;
+}
+#stage p {
+    text-align: center;
+    font-family: "PT Serif", serif;
+    width: 80%;
+    margin: 0 auto 10px auto;
+    font-size: 28px;
+    line-height: 28px;
 }
 @media screen and (max-width: 1024px) and (min-width: 642px) {
     h1 { font-size: 60px; }
@@ -490,6 +498,9 @@ article img.left {
     div#ani { display: none; }
     #rh-subnav #rh-subnav-wrap #ra-share-top { margin-top: 9px; }
     #rh-subnav #rh-subnav-wrap .ra-share-f { margin-left: 23%; }
+    #stage p {
+        font-size: 26px;
+    }
 }
 </style>
 
@@ -510,7 +521,7 @@ var trump = {
             if ( is_mobile ) the_top = window.pageYOffset;
             console.log(document.querySelector('article'))
             //window.alert(the_top + "hi" + document.pageYOffset);
-            if ( the_top > 2000) return false;
+            if ( the_top > 3000) return false;
             if ( the_top > trigger_height)
             {
                 $('#stage').addClass('scrolled');
@@ -573,12 +584,13 @@ $(document).ready(function(){
     <div id="stage">
         <h1>100 days of Trump</h1>
         <h2 id="approval"></h2>
+        <p>With no shortage of tweets, executive orders, “alternative facts,” travel bans issued, travel bans blocked, and &mdash; oh yeah &mdash; a new Supreme Court justice, President Trump’s first 100 days in office have been quite the roller coaster for America.</p>
 
         <div id="ani">
-            <div id="image-wrapper">
+            <div>
                 <img src="img/big-coaster-cropped.jpg" alt="Roller coaster">
             </div>
-            <div id="actor-wrapper">
+            <div>
                 <div id="actor"
                     data-235="left[pathx]:0%;top[pathy]:0%;transform[angle]:rotate(0deg);"
                     data-11000="left[pathx]:100%;top[pathy]:100%;transform[angle]:rotate(10deg);"
