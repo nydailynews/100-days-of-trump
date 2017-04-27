@@ -420,6 +420,13 @@ h3.fixed {
 h3.fixed.absolute {
   position: absolute;
 }
+article img.tweet {
+    display: block;
+    margin: 5px auto;
+    padding: 5px;
+    background-color: white;
+    border: 1px solid #999;
+}
         #box {
             width:150px;
             height:212.5px;
@@ -438,13 +445,12 @@ h3.fixed.absolute {
     margin-top: 300px;
 }
 .scrolled h1 {
+    position: fixed;
+    top: 0;
     font-size: 60px;
     margin: 15px auto;
-    background-color: white;
 }
-#stage #image-wrapper {
-    
-}
+#stage #image-wrapper { }
 #stage img {
     width: 100%;
 }
@@ -491,6 +497,7 @@ $(document).ready(function(){
             }
         }
     });
+    z = skrollr.get();
 });
 
 trigger_height = 235;
@@ -530,7 +537,7 @@ setInterval(function()
         <div id="box" data-100-top-top="left[pathx]:0%;top[pathy]:0%;transform[angle]:rotate(0deg);" data-1000-top-top="left[pathx]:90%;top[pathy]:90%;transform[angle]:rotate(0deg);"></div>
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 937.2 139.42">
             <defs><style>.a{fill:#f76d21;}</style></defs>
-            <path class="a" d="M67.69,299.46c-28.73,0-42.69-9.8-42.69-30,0-21.93,34.18-37.85,81.26-37.85,22.91,0,58.7,3.75,99.06,21.61l5.92,2.63c4.28,1.9,8.58,3.81,12.89,5.7C274.54,246.41,312,235.69,335,235.69c16.45,0,30.7,2.9,43.53,8.86,20.95-33.14,37.59-59.19,59.47-59.19,16.44,0,34.39,14.92,56.51,47a122.18,122.18,0,0,0,19.72,22.38c5.21-8.1,10.35-17.05,15.32-25.73,19.42-33.89,39.5-68.94,72-68.94,33,0,58.66,33.61,83.45,66.11,3.88,5.09,7.89,10.34,11.83,15.32l.28-.28c16.27-16.27,26.92-22.6,38-22.6,11.76,0,23.86,7.11,42.09,20.23,11.05,8,32.62,17.7,57.74,26.1l.84-.24c36.67-10.52,74.59-21.39,99.19-21.39,18.07,0,27.24,6.16,27.24,18.31,0,15.11-13.49,23.09-39,23.09-22.78,0-54.95-6.36-88.3-17.44-31.22,9-63.45,18.17-82,18.17-19.62,0-36.72-16.22-56.24-40.66-20.75,19.07-65.08,39-107.78,39-28.85,0-53.77-8.65-74.1-25.73-11.87,18-26.86,36.14-48.12,36.14-26.86,0-41.71-12.53-57.44-25.79-8.87-7.48-18-15.2-29.8-21l-3.75,5.92c-15.3,24.1-36,35.82-63.16,35.82-28.33,0-60.49-13-88.47-25.2l-4.56,1.37C163.68,282.1,106,299.46,67.69,299.46Z" transform="translate(-25 -160.04)"/>
+            <path class="a" d="M444,173c255-31-13,75-13,75L290,134,396,37l70,79,48,132,154,26L729,37,479,68Z" transform="translate(-290 -36)"/>
         </svg>
     </div>
     <p id="byline">Words by Adam Edelman, interactive by Kelli Parker, Joe Murphy and Steve Smirti</p>
@@ -566,6 +573,7 @@ Signs orders to kick-start Mexican border wall construction and withhold federal
 <p>
 Twitter blast prompts Mexican President Enrique Pena Nieto to cancel Washington trip. 
 </p>
+<img src="img/trump-tweet-20170126.png" alt="Donald Trump's tweet on January 26, 2017." class="tweet">
 
 <h3>Day 8 <span>Jan. 27</span></h3>
 <p>
@@ -621,6 +629,7 @@ Betsy DeVos confirmed as education secretary.
 <p>
 Trump blasts retailer Nordstrom for dropping daughter Ivanka’s fashion line. Jeff Sessions confirmed as attorney general. 
 </p>
+<img src="img/trump-tweet-20170208.png" alt="Donald Trump's tweet on February 8, 2017." class="tweet">
 
 <h3>Day 22 <span>Feb. 10</span></h3>
 <p>
@@ -707,6 +716,7 @@ Trump demands investigations of Sen. Chuck Schumer and Rep. Nancy Pelosi for sup
 <p>
 Tweets baseless accusation that <a href="http://www.nydailynews.com/news/politics/trump-misspells-tap-accuses-obama-bugging-phones-article-1.2988588">former President Barack Obama had illegally wiretapped Trump Tower</a>. 
 </p>
+<img src="img/trump-tweet-20170304.png" alt="Donald Trump's tweet on March 4, 2017." class="tweet">
 
 <h3>Day 45 <span>March 5</span></h3>
 <p>
@@ -802,6 +812,7 @@ Ivanka Trump formally joins administration as “special assistant to the Presid
 <p>
 Trump takes to Twitter to repeat baseless claim that the Obama administration had illegally surveilled his campaign.
 </p>
+<img src="img/trump-tweet-20170401.png" alt="Donald Trump's tweet on April 1, 2017." class="tweet">
 
 <h3>Day 73 <span>April 2</span></h3>
 <p>
@@ -837,6 +848,7 @@ On sixth visit as President to Mar-a-Lago, Trump meets with Chinese President Xi
 <p>
 Trump tweets that he would be willing to take on North Korea nuclear weapons program without international help.
 </p>
+<img src="img/trump-tweet-20170411.png" alt="Donald Trump's tweet on April 11, 2017." class="tweet">
 
 <h3>Day 83 <span>April 12</span></h3>
 <p>
@@ -872,6 +884,9 @@ Signs an executive order aimed at making the government buy more American-made p
 <p>
 <a href="http://www.nydailynews.com/sports/football/president-trump-greets-brady-less-patriots-white-house-article-1.3075361">Super Bowl champions New England Patriots visit White House</a> — minus star QB Tom Brady. 
 </p>
+
+<h3>Day 91 <span>April 20</span></h3>
+<img src="img/trump-tweet-20170420.png" alt="Donald Trump's tweet on April 20, 2017." class="tweet">
 
 <h3>Day 93 <span>April 22</span></h3>
 <p>
