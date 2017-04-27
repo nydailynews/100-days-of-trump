@@ -471,10 +471,25 @@ article img.left {
     position: fixed;
     top:-2230px;
 }
+@media screen and (max-width: 1024px) and (min-width: 642px) {
+    h1 { font-size: 60px; }
+    article { padding: 0 20px; }
+    #rh-subnav #rh-subnav-wrap #ra-share-top { margin-top: 9px; }
+}
 @media screen and (max-width: 642px) {
     h1 { font-size: 40px; }
+    .scrolled h1 {
+        font-size: 30px;
+    }
+    .scrolled {
+        width: 100%;
+        background-color: white;
+        min-height: 50px;
+    }
     article img.tweet { max-width: 100%; }
     div#ani { display: none; }
+    #rh-subnav #rh-subnav-wrap #ra-share-top { margin-top: 9px; }
+    #rh-subnav #rh-subnav-wrap .ra-share-f { margin-left: 23%; }
 }
 </style>
 
@@ -530,23 +545,26 @@ var trump = {
 $(document).ready(function(){
     trump.init(); 
 
-    var pathEasing = skrollr.easingFromPath(document.querySelector('path'), {
-        weights: []
-    });
+    if ( !is_mobile )
+    {
+        var pathEasing = skrollr.easingFromPath(document.querySelector('path'), {
+            weights: []
+        });
 
-    console.log(pathEasing.x, pathEasing.angle);
-    skrollr.init({
-        easing: {
-            pathx: pathEasing.x,
-            pathy: pathEasing.y,
-            angle: pathEasing.angle
-        },
-        edgeStrategy: 'ease',
-        render: function(data) {
-            document.querySelector('.scrollpos').innerHTML = data.curTop;
-        }
-    });
-    z = skrollr.get();
+        console.log(pathEasing.x, pathEasing.angle);
+        skrollr.init({
+            easing: {
+                pathx: pathEasing.x,
+                pathy: pathEasing.y,
+                angle: pathEasing.angle
+            },
+            edgeStrategy: 'ease',
+            render: function(data) {
+                document.querySelector('.scrollpos').innerHTML = data.curTop;
+            }
+        });
+        z = skrollr.get();
+    }
 });
 
 </script>
@@ -826,8 +844,7 @@ Budget proposal would gut foreign aid and domestic programs, boost defense and b
 
 <h3>Day 57 <span>March 17</span></h3>
 <p>
-<img src="img/cutouts/donald-trump.png" alt="Donald Trump" class="cutout left">
-<img src="img/cutouts/angela-merkel.png" alt="Angela Merkel" class="cutout">
+<img src="img/cutouts/angela-merkel.png" alt="Angela Merkel" class="cutout left">
 <a href="http://www.nydailynews.com/news/national/president-trump-ignores-handshake-request-angela-merkel-article-1.3001266">Trump is oblivious to shaking German Chancellor Angela Merkel’s hand</a> at White House. Fifth visit to Mar-a-Lago.
 </p>
 
@@ -835,7 +852,7 @@ Budget proposal would gut foreign aid and domestic programs, boost defense and b
 <p>
 <img src="img/cutouts/james-comey.png" alt="James Comey" class="cutout">
 <img src="img/cutouts/barack-obama.png" alt="Barack Obama" class="cutout">
-<img src="img/cutouts/vladimir-putin.png" alt="Vladimir Putin" class="cutout left">
+<img src="img/cutouts/vladimir-putin.png" alt="Vladimir Putin" class="cutout">
 Director James Comey acknowledges <a href="http://www.nydailynews.com/news/politics/james-comey-no-information-support-trump-wiretap-claims-article-1.3003198">FBI is investigating Trump campaign ties to Russia</a> and knocks down Trump tweets that Obama wiretapped Trump Tower.
 </p>
 
