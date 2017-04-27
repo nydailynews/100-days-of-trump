@@ -428,6 +428,12 @@ h3.fixed.absolute {
             top:50%;
         }
 
+.scrolled {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: blue;
+}
 </style>
 
 <script>
@@ -468,16 +474,44 @@ $(document).ready(function(){
         }
     });
 });
+
+trigger_height = 235;
+function scroll_fire()
+{
+    if ($(this).scrollTop() > 1000) return false;
+    if ($(this).scrollTop() > trigger_height)
+    {
+        $('#stage').addClass('scrolled');
+    }
+    else if($(this).scrollTop() < trigger_height)
+    {
+        $('#stage').removeClass('scrolled');
+    }
+}
+    
+var did_scroll = 0;
+$(window).scroll(function() { did_scroll = 1; });
+setInterval(function()
+{
+    if ( did_scroll == 1 )
+    {
+        did_scroll = 0;
+        scroll_fire();
+    }
+}, 200);
 </script>
-    <h1>100 days of Trump</h1>
-    <h2 id="approval"></h2>
-    <p id="byline">Words by Adam Edelman, interactive by Kelli Parker, Joe Murphy and Steve Smirti</p>
+
+    <div id="stage">
+        <h1>100 days of Trump</h1>
+        <h2 id="approval"></h2>
 
     <div id="box" data-100-top-top="left[pathx]:0%;top[pathy]:0%;transform[angle]:rotate(0deg);" data-1000-top-top="left[pathx]:90%;top[pathy]:90%;transform[angle]:rotate(0deg);"></div>
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 937.2 139.42">
     <defs><style>.a{fill:#f76d21;}</style></defs>
     <path class="a" d="M67.69,299.46c-28.73,0-42.69-9.8-42.69-30,0-21.93,34.18-37.85,81.26-37.85,22.91,0,58.7,3.75,99.06,21.61l5.92,2.63c4.28,1.9,8.58,3.81,12.89,5.7C274.54,246.41,312,235.69,335,235.69c16.45,0,30.7,2.9,43.53,8.86,20.95-33.14,37.59-59.19,59.47-59.19,16.44,0,34.39,14.92,56.51,47a122.18,122.18,0,0,0,19.72,22.38c5.21-8.1,10.35-17.05,15.32-25.73,19.42-33.89,39.5-68.94,72-68.94,33,0,58.66,33.61,83.45,66.11,3.88,5.09,7.89,10.34,11.83,15.32l.28-.28c16.27-16.27,26.92-22.6,38-22.6,11.76,0,23.86,7.11,42.09,20.23,11.05,8,32.62,17.7,57.74,26.1l.84-.24c36.67-10.52,74.59-21.39,99.19-21.39,18.07,0,27.24,6.16,27.24,18.31,0,15.11-13.49,23.09-39,23.09-22.78,0-54.95-6.36-88.3-17.44-31.22,9-63.45,18.17-82,18.17-19.62,0-36.72-16.22-56.24-40.66-20.75,19.07-65.08,39-107.78,39-28.85,0-53.77-8.65-74.1-25.73-11.87,18-26.86,36.14-48.12,36.14-26.86,0-41.71-12.53-57.44-25.79-8.87-7.48-18-15.2-29.8-21l-3.75,5.92c-15.3,24.1-36,35.82-63.16,35.82-28.33,0-60.49-13-88.47-25.2l-4.56,1.37C163.68,282.1,106,299.46,67.69,299.46Z" transform="translate(-25 -160.04)"/>
 </svg>
+    </div>
+    <p id="byline">Words by Adam Edelman, interactive by Kelli Parker, Joe Murphy and Steve Smirti</p>
 
 <div class="scrollpos"></div>
   <article>
