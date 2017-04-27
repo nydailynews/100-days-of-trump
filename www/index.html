@@ -71,7 +71,7 @@
 
     <!-- ADOBE ANALYTICS -->
     <script src="//assets.adobedtm.com/4fc527d6fda921c80e462d11a29deae2e4cf7514/satelliteLib-c91fdc6ac624c6cbcd50250f79786de339793801.js"></script>
-    <script src="http://interactiveqa.nydailynews.com/work/eat-along-subway/js/vendor/jquery.js"></script>
+    <script src="js/jquery.js"></script>
 
     <link href='https://fonts.googleapis.com/css?family=Open%20Sans:400|Open+Sans+Condensed:300,700|PT+Serif' rel='stylesheet' type='text/css'>
     <script data-main="http://assets.nydailynews.com/nydn/js/rh.js?r=20170405001" src="http://assets.nydailynews.com/nydn/js/require.js?r=2016LIST" defer></script>
@@ -342,29 +342,28 @@
 
  </div> 
   <main>
-    <h1>100 days of Trump</h1>
-    <h2 id="approval"></h2>
-    <svg id="rollercoaster"></svg>
-    <div id="box" data-0-top-top="left[pathx]:0%;top[pathy]:0%;transform[angle]:rotate(0deg);" data-2000-top-top="left[pathx]:90%;top[pathy]:90%;transform[angle]:rotate(180deg);"></div>
-    <svg
-        xmlns:dc="http://purl.org/dc/elements/1.1/"
-        xmlns:cc="http://creativecommons.org/ns#"
-        xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
-        xmlns:svg="http://www.w3.org/2000/svg"
-        xmlns="http://www.w3.org/2000/svg"
-        version="1.1"
-        width="704.30713"
-        height="209.22272">
-        <path
-        d="m 122.03772,65.861565 c -75.434613,52.807885 -95.773754,71.302415 3.2212,99.586685 98.99494,28.28427 321.2285,-62.62946 321.2285,-62.62946 0,0 131.31984,-52.527932 181.82746,16.16244 50.50763,68.69037 82.04198,196.41856 44.44671,284.86302 -30.25843,71.18422 -74.75128,129.29952 -189.90867,133.34013 -115.15739,4.04061 -72.73099,-153.54318 -72.73099,-153.54318 0,0 42.42641,-129.29953 135.36044,-119.198 92.93404,10.10152 -14.14213,-129.29953 -141.42135,-94.95434 -127.27922,34.34518 -183.84777,80.8122 -206.07112,121.2183 -22.22336,40.40611 -42.06243,226.23742 -26.26397,305.06607 8.77013,43.75982 58.20627,196.1403 171.72594,270.72088 73.8225,48.50019 181.82745,2.02031 181.82745,2.02031 0,0 94.95434,-12.12183 78.7919,-155.56349 -16.16244,-143.44166 -111.68403,-138.77778 -139.9683,-138.77778 -28.28427,0 83.39976,-156.18677 83.39976,-156.18677 0,0 127.27922,-189.90867 107.07617,16.16245 C 634.3758,640.21994 864.69058,888.71747 591.94939,941.2454 319.2082,993.77334 -174.96291,629.73349 113.54319,880.67109 402.04929,1131.6087 430.22166,-149.88212 122.03772,65.861565 z"/>
-        </g>
-    </svg>
-
 <style type="text/css">
+.scrollpos{
+    position: fixed;
+    z-index: 100;
+    background: #ffffff;
+    top: 0;
+    right: 0;
+}
+
+p#byline {
+    width: 90%;
+    margin: auto;
+    text-align: center;
+    border-top: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
+}
 article {
     width: 100%;
+/*
     height: 300px;
     overflow: auto;
+*/
 }
 article div {
     margin: 0 auto;
@@ -421,7 +420,8 @@ h3.fixed.absolute {
         #box {
             width:100px;
             height:100px;
-            background:red;
+            background-image:url('http://www.thirteen.org/the-knights/files/2011/09/Daily-News-logo1.jpg');
+            background-size: 100px 100px;
             position:fixed;
             top:50%;
         }
@@ -440,14 +440,17 @@ var trump = {
         });
     }
 };
-$(document).ready(function(){ trump.init(); });
 </script>
 <script src="js/jquery.waypoints.js"></script>
 <script src="js/skrollr-path.js"></script>
 <script>
+$(document).ready(function(){
+    trump.init(); 
+
     var pathEasing = skrollr.easingFromPath(document.querySelector('path'), {
         weights: [,,,,,,,,,,,,,,,,,0.1]
     });
+
     skrollr.init({
         easing: {
             pathx: pathEasing.x,
@@ -456,65 +459,382 @@ $(document).ready(function(){ trump.init(); });
         },
         edgeStrategy: 'ease',
         render: function(data) {
+            document.querySelector('.scrollpos').innerHTML = data.curTop;
             if(data.curTop === data.maxTop) {
                 this.setScrollTop(0, true);
             }
         }
     });
+});
 </script>
+    <h1>100 days of Trump</h1>
+    <h2 id="approval"></h2>
+    <p id="byline">Words by Adam Edelman, interactive by Kelli Parker, Joe Murphy and Steve Smirti</p>
+
+    <div id="box" data-100-top-top="left[pathx]:0%;top[pathy]:0%;transform[angle]:rotate(0deg);" data-1000-top-top="left[pathx]:90%;top[pathy]:90%;transform[angle]:rotate(0deg);"></div>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 937.2 139.42">
+    <defs><style>.a{fill:#f76d21;}</style></defs>
+    <path class="a" d="M67.69,299.46c-28.73,0-42.69-9.8-42.69-30,0-21.93,34.18-37.85,81.26-37.85,22.91,0,58.7,3.75,99.06,21.61l5.92,2.63c4.28,1.9,8.58,3.81,12.89,5.7C274.54,246.41,312,235.69,335,235.69c16.45,0,30.7,2.9,43.53,8.86,20.95-33.14,37.59-59.19,59.47-59.19,16.44,0,34.39,14.92,56.51,47a122.18,122.18,0,0,0,19.72,22.38c5.21-8.1,10.35-17.05,15.32-25.73,19.42-33.89,39.5-68.94,72-68.94,33,0,58.66,33.61,83.45,66.11,3.88,5.09,7.89,10.34,11.83,15.32l.28-.28c16.27-16.27,26.92-22.6,38-22.6,11.76,0,23.86,7.11,42.09,20.23,11.05,8,32.62,17.7,57.74,26.1l.84-.24c36.67-10.52,74.59-21.39,99.19-21.39,18.07,0,27.24,6.16,27.24,18.31,0,15.11-13.49,23.09-39,23.09-22.78,0-54.95-6.36-88.3-17.44-31.22,9-63.45,18.17-82,18.17-19.62,0-36.72-16.22-56.24-40.66-20.75,19.07-65.08,39-107.78,39-28.85,0-53.77-8.65-74.1-25.73-11.87,18-26.86,36.14-48.12,36.14-26.86,0-41.71-12.53-57.44-25.79-8.87-7.48-18-15.2-29.8-21l-3.75,5.92c-15.3,24.1-36,35.82-63.16,35.82-28.33,0-60.49-13-88.47-25.2l-4.56,1.37C163.68,282.1,106,299.46,67.69,299.46Z" transform="translate(-25 -160.04)"/>
+</svg>
+
+<div class="scrollpos"></div>
   <article>
      <div id="skrollr-body">
 <h3>Day 1 <span>Jan. 20</span></h3>
- </p><p>
-With a scowling Melania seated behind him, President Trump uses his inaugural address to boast that “America will start winning again, winning like never before.”</p><p>
- </p><p>
-He gets right to work, signing just hours later, a vague executive order aimed at rolling back Obamacare.</p><p>
- </p>
-<h3>Day 2 <span>Jan 21</span></h3>
+<p> 
+With a sometimes scowling Melania Trump seated behind him, newly minted President Trump proclaims, “This American carnage stops right here and stops right now.” He signs an executive order aimed at rolling back Obamacare.
+</p>
+
+<h3>Day 2 <span>Jan. 21</span></h3>
 <p>
-Armed with photos and sass, White House Press Secretary Sean Spicer holds a combative press conference where he rips the media for its “shameful” reporting about the inauguration and claims that the ceremony had the “largest audience to ever witness an inauguration, period, both in person and around the globe.”</p><p>
- </p><p>
-Trump visits the CIA, where he tells agents in a boastful address that, “you’re gonna get so much backing.”</p><p>
- </p>
-<h3>Day 3 - Jan. 22:</h3>
+Press secretary Sean Spicer claims Trump had drawn the “largest audience to ever witness an inauguration, period, both in person and around the globe.” Visiting the CIA, the President says, “Trust me, I’m like a smart person.”
+</p>
+
+<h3>Day 3 <span>Jan. 22</span></h3>
+<p> 
+White House aide Kellyanne Conway says Spicer offers “alternative facts.”
+</p>
+
+<h3>Day 4 <span>Jan. 23</span></h3>
+<p> 
+Millions of people cast ballots illegally, Trump falsely declares to explain how Hillary Clinton got 3 million more votes than he did. He OKs the Dakota Access Pipeline and the Keystone XL Pipeline.
+</p>
+
+<h3>Day 6 <span>Jan. 25</span></h3>
+<p> 
+Signs orders to kick-start Mexican border wall construction and withhold federal funding from sanctuary cities. 
+</p>
+
+<h3>Day 7 <span>Jan. 26</span></h3>
 <p>
-In the first of many gaffes, Senior White House Aide Kellyanne Conway says Spicer was merely providing “alternative facts” when claimed that Trump’s inauguration crowd was the biggest ever.</p><p>
- </p>
-<h3>Day 4 - Jan. 23:</h3><p>
- </p><p>
-A cocky and newly emboldened Trump repeats his claim that millions of people voted illegally in the 2016 election — his first time making the statement as President.</p><p>
- </p><p>
-He signs several executive orders: One putting in motion withdrawal from the Trans Pacific Partnership, one freezes all hiring in the executive branch, and another reinstates the "Mexico City Policy” (which had allowed the U.S. to use international aid money to support foreign groups that provided abortion services)..</p><p>
- </p><h3>
-Day 5 - Jan. 24:</h3><p>
- </p><p>
-Making good on vows to increase energy production, no matter the environmental cost, Trump OKs  construction on the Dakota Access Pipeline and the Keystone XL Pipeline and requires that all pipeline materials be made in the U.S.</p><p>
- </p><p>
-Day 6 - Jan 25:</p><p>
- </p><p>
-Signs orders, orders and more orders: A measure designed to kick start construction on the “big, beautiful” border wall and another that increases border security by hiring 5,000 more border agents and 10,000 more immigration officers. Another puts  measures in place to withhold federal funding from sanctuary cities.</p><p>
- </p><p>
-Day 7 - Jan. 26:</p><p>
- </p><p>
-In one the first of dozens of wave-making tweets that actually harms international relations, Trump gets into Twitter exchange with Mexican President Enrique Pena Nieto that triggers a diplomatic rift  resulting in the Mexican leader canceling a planned trip to Washington.</p><p>
- </p><p>
-Day 8 - Jan. 27:</p><p>
- </p><p>
-Trump signs his first travel ban executive order — which bars the entrance into the U.S. of people from seven Muslim-majority nations and suspends the  U.S. refugee resettlement program — prompting protests and chaos at airports across the U.S.</p><p>
- </p><p>
-Day 9 - Jan. 28:</p><p>
- </p><p>
-Trump puts his chief strategist, Stephen Bannon, on the National Security Council’s principals committee and signs a measure cutting the influence of the chairman of the Joint Chiefs of Staff and the Director of National Intelligence.</p><p>
- </p><p>
-He also signs an executive order directing his administration "to develop a comprehensive plan to defeat ISIS</p><p>
- </p><p>
-Meanwhile, a federal judge in Brooklyn blocks parts of Trump’s refugee ban, which leads to several other judges blocking other parts of the ban.</p><p>
- </p><p>
-Trump also authorizes a raid by Navy SEALs in Yemen that goes wrong and results in the death of Chief Petty Officer William Owens.</p><p>
- </p><p>
-Day 10 - Jan. 29:</p><p>
-</p><p>
-Trump speaks by phone with Saudi King Salman bin Abdul Aziz.</p><p>
+Twitter blast prompts Mexican President Enrique Pena Nieto to cancel Washington trip. 
+</p>
+
+<h3>Day 8 <span>Jan. 27</span></h3>
+<p>
+International chaos after Trump signs order temporarily banning all refugees, as well as travelers from seven Muslim-majority nations.
+</p>
+
+<h3>Day 9 <span>Jan. 28</span></h3>
+<p>
+President installs right-wing Stephen Bannon on National Security Council while cutting sway of military and intelligence chiefs. Judges block travel ban. Trump authorizes Yemen raid that costs lives of several civilians and a Navy SEAL.
+</p>
+
+<h3>Day 11 <span>Jan. 30</span></h3>
+<p>
+Obama Justice Department holdover Sally Yates refuses to defend travel ban in court. Out she goes. Trump instructs agencies to cut two old regulations for every new one.
+</p>
+
+<h3>Day 12 <span>Jan. 31</span></h3>
+<p>
+Trump nominates Neil Gorsuch to Supreme Court.
+</p>
+
+<h3>Day 13 <span>Feb. 1</span></h3>
+<p>
+Describes 19th century African-American abolitionist Frederick Douglass as someone “who’s done an amazing job that is being recognized more and more.”
+</p>
+
+<h3>Day 14 <span>Feb. 2</span></h3>
+<p>
+At National Prayer Breakfast, Trump asks the crowd to pray for Arnold Schwarzenegger’s ratings on “The Apprentice.”
+</p>
+
+<h3>Day 15 <span>Feb. 3</span></h3>
+<p>
+Judge blocks entire travel ban. Trump heads to Mar-a-Lago for first time as President.
+</p>
+
+<h3>Day 16 <span>Feb. 4</span></h3>
+<p> 
+Trump calls travel ban judge a “so-called judge.”
+</p>
+
+<h3>Day 17 <span>Feb. 5</span></h3>
+<p>
+Super Bowl fun at Mar-a-Lago.
+</p>
+
+<h3>Day 19 <span>Feb. 7</span></h3>
+<p>
+Betsy DeVos confirmed as education secretary.
+</p>
+
+<h3>Day 20 <span>Feb. 8</span></h3>
+<p>
+Trump blasts retailer Nordstrom for dropping daughter Ivanka’s fashion line. Jeff Sessions confirmed as attorney general. 
+</p>
+
+<h3>Day 22 <span>Feb. 10</span></h3>
+<p>
+A second consecutive weekend at Mar-a-Lago.
+</p>
+
+<h3>Day 23 <span>Feb. 11</span></h3>
+<p>
+North Korean ballistic missile test disrupts Mar-a-Lago dinner with Japanese Prime Minister Shinzo Abe. The two leaders scramble to respond in public dining room.
+</p>
+
+<h3>Day 25 <span>Feb. 13</span></h3>
+<p>
+National security adviser Michael Flynn resigns after misleading Vice President Pence about Russian contact. Steven Mnuchin is confirmed as treasury secretary.
+</p>
+
+<h3>Day 26 <span>Feb. 14</span></h3>
+<p>
+House and Senate probes into pro-Trump Russian meddling into the 2016 election draw attention. Trump tweets that “illegal leaks coming out of Washington” and “the real story.”
+</p>
+
+<h3>Day 27 <span>Feb. 15</span></h3>
+<p>
+During press conference with Israeli Prime Minister Benjamin Netanyahu, Trump says he is not committed to a two-state solution in the Middle East. Abuse accusations by ex-wife sink labor secretary nominee Andy Puzder.
+President’s approval rating falls to 40%.
+</p>
+
+<h3>Day 28 <span>Feb. 16</span></h3>
+<p>
+First solo presidential press conference &mdash; Trump praises ousted Flynn as “a fine man,” criticizes Jewish reporter for asking about a wave of anti-Semitic threats, blasts “dishonest” media for “fake news” (that he acknowledges is based on facts) and calls administration a “fine-tuned machine.”
+</p>
+
+<h3>Day 29 <span>Feb. 17</span></h3>
+<p>
+Back to Mar-a-Lago for third consecutive weekend.
+</p>
+
+<h3>Day 30 <span>Feb. 18</span></h3>
+<p>
+During a campaign-style rally, Trump falsely suggests Sweden had been hit by a terror attack.
+</p>
+
+<h3>Day 32 <span>Feb. 20</span></h3>
+<p>
+Army Lt. Gen. H.R. McMaster is new national security adviser. 
+</p>
+
+<h3>Day 33 <span>Feb. 21</span></h3>
+<p>
+Deportations of undocumented immigrants is put on fast track.
+</p>
+
+<h3>Day 34 <span>Feb. 22</span></h3>
+<p> 
+Trump rescinds Obama-era policy aimed at letting transgender students use the bathrooms of their choice.
+</p>
+
+<h3>Day 36 <span>Feb. 24</span></h3>
+<p>
+Demands the “fake media” stop quoting anonymous sources — hours after White House officials held a briefing where they insisted on anonymity. Calls “fake news the enemy of the people.”
+</p>
+
+<h3>Day 37 <span>Feb. 25</span></h3>
+<p>
+No Mar-a-Lago this weekend. Instead, dinner at Trump hotel in Washington.
+</p>
+
+<h3>Day 40 <span>Feb. 28</span></h3>
+<p>
+Good reviews for Trump’s first address before a joint session of Congress. Signs bill making it easier for mentally ill people to obtain guns. 
+</p>
+
+<h3>Day 42 <span>March 2</span></h3>
+<p>
+AG Sessions recuses himself from investigations of ties between Trump campaign and Russia because he had met with Russian ambassador in 2016.
+</p>
+
+<h3>Day 43 <span>March 3</span></h3>
+<p>
+Trump demands investigations of Sen. Chuck Schumer and Rep. Nancy Pelosi for supposed ties to Vladimir Putin or Russia. Fourth Mar-a-Lago sojourn.
+</p>
+
+<h3>Day 44 <span>March 4</span></h3>
+<p>
+Tweets baseless accusation that former President Barack Obama had illegally wiretapped Trump Tower. 
+</p>
+
+<h3>Day 45 <span>March 5</span></h3>
+<p>
+Calls on the House and Senate committees investigating Russian meddling in the 2016 election to also probe his false claim that Obama had ordered wiretaps of Trump Tower.
+</p>
+
+<h3>Day 46 <span>March 6</span></h3>
+<p>
+Second travel ban, this time from six Muslim-majority nations. House Republicans release proposal to repeal and replace Obamacare.
+</p>
+
+<h3>Day 50 <span>March 10</span></h3>
+<p>
+Trump demands resignations of top federal prosecutors nationwide, including Manhattan U.S. Attorney Preet Bharara. Previously, Trump had personally asked Bharara to stay on the job. 
+</p>
+
+<h3>Day 51 <span>March 11</span></h3>
+<p>
+Trump fires Bharara after Bharara failed to quit. Golf at Trump National Golf Club outside Washington.
+</p>
+
+<h3>Day 53 <span>March 13</span></h3>
+<p>
+Congressional Budget Office says Republicans’ health care plan would deprive 24 million people of health insurance.
+</p>
+
+<h3>Day 54 <span>March 14</span></h3>
+<p>
+Leaked return shows Trump paid $38 million in federal taxes in 2005 on $153 million in income. 
+</p>
+
+<h3>Day 55 <span>March 15</span></h3>
+<p>
+Federal judge blocks Trump's second travel ban as targeted at Muslims.
+</p>
+
+<h3>Day 56 <span>March 16</span></h3>
+<p>
+Budget proposal would gut foreign aid and domestic programs, boost defense and border spending and decimate NYPD terror funding.
+</p>
+
+<h3>Day 57 <span>March 17</span></h3>
+<p>
+Trump is oblivious to shaking German Chancellor Angela Merkel’s hand at White House. Fifth visit to Mar-a-Lago.
+</p>
+
+<h3>Day 60 <span>March 20</span></h3>
+<p>
+Director James Comey acknowledges FBI is investigating Trump campaign ties to Russia and knocks down Trump tweets that Obama wiretapped Trump Tower.
+</p>
+
+<h3>Day 61 <span>March 21</span></h3>
+<p>
+Demands that House Republicans vote on bill to repeal and replace Obamacare.
+</p>
+
+<h3>Day 62 <span>March 22</span></h3>
+<p>
+Approval rating at 40%.
+</p>
+
+<h3>Day 63 <span>March 23</span></h3>
+<p>
+Lacking votes, House Republicans pull President's proposal to repeal and replace Obamacare.
+</p>
+
+<h3>Day 65 <span>March 25</span></h3>
+<p>
+Dinner at Trump International Hotel in Washington, D.C.
+</p>
+
+<h3>Day 66 <span>March 26</span></h3>
+<p>
+A round at Trump National Golf Club in Virginia.
+</p>
+
+<h3>Day 67 <span>March 27</span></h3>
+<p>
+House Intelligence Committee Chairman Devin Nunes admits to secretly visiting White House grounds amid Russian meddling probe.
+</p>
+
+<h3>Day 68 <span>March 28</span></h3>
+<p>
+Trump rolls back anti-global-warming environmental policies.
+</p>
+
+<h3>Day 69 <span>March 29</span></h3>
+<p>
+Ivanka Trump formally joins administration as “special assistant to the President.” Approval ratings fall to 35%.
+</p>
+
+<h3>Day 72 <span>April 1</span></h3>
+<p>
+Trump takes to Twitter to repeat baseless claim that the Obama administration had illegally surveilled his campaign.
+</p>
+
+<h3>Day 73 <span>April 2</span></h3>
+<p>
+Hits links at Trump National Golf Club.
+</p>
+
+<h3>Day 74 <span>April 3</span></h3>
+<p>
+Welcomes Egyptian President Abdel Fattah al-Sissi to White House.
+</p>
+
+<h3>Day 75 <span>April 4</span></h3>
+<p>
+Trump condemns chemical gas attack in Syria and blames Obama for being too soft on strongman Bashar Assad.
+</p>
+
+<h3>Day 76 <span>April 5</span></h3>
+<p>
+Syrian gas attack “crossed a lot of lines for me...many, many lines, beyond a red line,” Trump declares. Separately, he removes Stephen Bannon from National Security Council.
+</p>
+
+<h3>Day 77 <span>April 6</span></h3>
+<p>
+On sixth visit as President to Mar-a-Lago, Trump meets with Chinese President Xi Jinping. Authorizes U.S. missile strike on Syrian air base from which Assad regime mounted chemical attack. Trump tells Xi of the strikes over dessert. 
+</p>
+
+<h3>Day 78 <span>April 7</span></h3>
+<p>
+Senate confirms Neil Gorsuch for the Supreme Court after GOP revokes longstanding rule requiring a supermajority for justices.
+</p>
+
+<h3>Day 82 <span>April 11</span></h3>
+<p>
+Trump tweets that he would be willing to take on North Korea nuclear weapons program without international help.
+</p>
+
+<h3>Day 83 <span>April 12</span></h3>
+<p>
+Reversing campaign positions, Trump declines to label China a “currency manipulator,” says NATO is “no longer obsolete,” and declares that the Export-Import Bank is “a very good thing.”
+</p>
+
+<h3>Day 84 <span>April 13</span></h3>
+<p>
+Military drops “Mother of All Bombs” on ISIS tunnels in eastern Afghanistan. Trump signs legislation allowing states to deny federal family planning money to Planned Parenthood and other abortion providers. Seventh weekend visit to Mar-a-Lago.
+</p>
+
+<h3>Day 85 <span>April 14</span></h3>
+<p>
+Henceforth, White House visitor logs will be secret.
+</p>
+
+<h3>Day 87 <span>April 16</span></h3>
+<p>
+Easter services at Bethesda by the Sea, an Episcopal church close to Mar-a-Lago.
+</p>
+
+<h3>Day 88 <span>April 17</span></h3>
+<p>
+Trump hosts a downsized annual Easter Egg Roll. Melania Trump appears to remind the President to put his hand over his heart during the national anthem.
+</p>
+
+<h3>Day 89 <span>April 18</span></h3>
+<p>
+Signs an executive order aimed at making the government buy more American-made products and tightening rules on an employment visa program.
+</p>
+
+<h3>Day 90 <span>April 19</span></h3>
+<p>
+Super Bowl champions New England Patriots visit White House — minus star QB Tom Brady. 
+</p>
+
+<h3>Day 93 <span>April 22</span></h3>
+<p>
+Dinner at Trump International Hotel.
+</p>
+
+<h3>Day 95 <span>April 24</span></h3>
+<p>
+Sanctions against 271 scientists involved in Syria’s chemical weapons program. Congratulatory phone call to astronaut Peggy Whitson for surpassing a record 534 days in space.
+</p>
+
+<h3>Day 96 <span>April 25</span></h3>
+<p> 
+On Holocaust Remembrance Day, Trump condemns anti-Semitism and pledges to “always stand with the Jewish people.” Judge freezes executive order threatening to cut federal funding for so-called sanctuary cities like New York.
+</p>
+
+<h3>Day 97 <span>April 26</span></h3>
+<p>
+White House officials release Trump’s tax reform plan, which would include tax breaks for the wealthy, but don’t say how they would pay for it. 
+</p>
     </div>
   </article>
         <!-- CUSTOM CSS GOES HERE-->
@@ -522,9 +842,6 @@ Trump speaks by phone with Saudi King Salman bin Abdul Aziz.</p><p>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/foundation/5.5.2/css/foundation.css" />
 -->
         <link href="../css/style.css?v2" rel="stylesheet" type="text/css" />
-
-        <!-- CUSTOM JS GOES HERE-->
-        <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
   </div>  
 
   <div class="center" style="margin-bottom: 18px">
