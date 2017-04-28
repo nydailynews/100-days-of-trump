@@ -554,10 +554,10 @@ var trump = {
     }
 };
 </script>
-<script src="js/jquery.waypoints.js"></script>
 <!--
-<script src="js/skrollr-path.js"></script>
+<script src="js/jquery.waypoints.js"></script>
 -->
+<script src="js/skrollr-path.js"></script>
 <script>
 $(document).ready(function(){
     trump.init(); 
@@ -581,7 +581,7 @@ $(document).ready(function(){
             },
             edgeStrategy: 'ease',
             render: function(data) {
-                document.querySelector('.scrollpos').innerHTML = data.curTop;
+                //document.querySelector('.scrollpos').innerHTML = data.curTop;
             }
         });
         z = skrollr.get();
