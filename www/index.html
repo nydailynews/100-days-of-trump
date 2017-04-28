@@ -479,6 +479,7 @@ article img.left {
     font-size: 28px;
     line-height: 28px;
 }
+.hide { display: none; }
 .handheld #ani { display: none; }
 .handheld .scrolled {
     width: 100%;
@@ -565,6 +566,7 @@ $(document).ready(function(){
     if ( is_mobile )
     {
         $('#stage, article, main').addClass('handheld');
+        $('.handheld-show').removeClass('hide');
     }
     else
     {
@@ -615,6 +617,7 @@ $(document).ready(function(){
     <p id="byline">Words by Adam Edelman, interactive by Kelli Parker, Joe Murphy and Steve Smirti</p>
 
   <article>
+    <div class="hide handheld-show"><img src="img/100-social-share.png" alt="100 days of Trump"></div>
      <div id="skrollr-body">
 <h3>Day 1 <span>Jan. 20</span></h3>
 <p> 
