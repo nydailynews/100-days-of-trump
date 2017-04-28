@@ -436,17 +436,21 @@ article img.left {
     float: left;
 }
 #actor {
-    position: relative;
-}
-.scrolled #actor {
     width:150px;
     height:212.5px;
     background-image:url('img/liberty-cart.png');
     background-size: 150px 212.5px;
     position: fixed;
-    margin-top: -570px;
     margin-left: -100px;
 }
+#actor {
+    margin-top: -170px;
+}
+.scrolled #actor {
+    margin-top: -570px;
+}
+
+.clear { clear: both; }
 
 .scrolled {
     position: fixed;
@@ -617,7 +621,7 @@ $(document).ready(function(){
     <p id="byline">Words by Adam Edelman, interactive by Kelli Parker, Joe Murphy and Steve Smirti</p>
 
   <article>
-    <div class="hide handheld-show"><img src="img/100-social-share.png" alt="100 days of Trump"></div>
+    <img src="img/100-social-share.png" alt="100 days of Trump" class="hide handheld-show" style="width: 100%;">
      <div id="skrollr-body">
 <h3>Day 1 <span>Jan. 20</span></h3>
 <p> 
@@ -645,11 +649,11 @@ White House aide Kellyanne Conway says Spicer offers “<a href="http://www.nyda
 
 <h3>Day 6 <span>Jan. 25</span></h3>
 <p> 
-<img src="img/cutouts/capitol-building.png" alt="Capitol Building" class="cutout capitol left">
+<img src="img/cutouts/capitol-building.png" alt="Capitol Building" class="cutout capitol">
 Signs orders to kick-start Mexican border wall construction and withhold federal funding from sanctuary cities. 
 </p>
 
-<h3>Day 7 <span>Jan. 26</span></h3>
+<h3 class="clear">Day 7 <span>Jan. 26</span></h3>
 <p>
 Twitter blast prompts Mexican President Enrique Pena Nieto to cancel Washington trip. 
 </p>
