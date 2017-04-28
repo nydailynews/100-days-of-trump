@@ -529,18 +529,22 @@ var trump = {
             if ( the_top > trigger_height)
             {
                 $('#stage').addClass('scrolled');
-                console.log($(window).height());
                 if ( margin_set === 0 )
                 {
                     margin_set = 1;
                     var m = (h*-1) + 145;
+                    if ( h > 1000 ) m += 70;
                     $('#actor').css('margin-top', m + 'px');
                 }
             }
             else if( the_top < trigger_height)
             {
                 $('#stage').removeClass('scrolled');
-                $('#actor').css('margin-top', 0);
+                if ( margin_set === 1 )
+                {
+                    $('#actor').css('margin-top', 0);
+                    margin_set = 0;
+                }
             }
         }
             
