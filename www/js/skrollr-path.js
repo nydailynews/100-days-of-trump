@@ -55,7 +55,7 @@
 				return a.start - b.start;
 			});
 
-			console.log(segments);
+			//console.log(segments);
 		}
 
 		var xFn = function(p) {

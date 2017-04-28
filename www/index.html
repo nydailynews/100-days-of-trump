@@ -430,7 +430,7 @@ article img.capitol {
 article img.left {
     float: left;
 }
-#actor {
+.scrolled #actor {
     width:150px;
     height:212.5px;
     background-image:url('img/liberty-cart.png');
@@ -439,11 +439,9 @@ article img.left {
     margin-left: -100px;
 }
 #actor {
-    margin-top: -170px;
+    position: relative;
 }
-.scrolled #actor {
-    margin-top: -570px;
-}
+.scrolled #actor { margin-top: -570px; }
 
 .clear { clear: both; }
 
@@ -518,7 +516,9 @@ var trump = {
             $(this).attr('id', id);
         });
         // HEIGHT ADJUST
+        h = $(window).height();
         trigger_height = 295;
+        margin_set = 0;
         function scroll_fire()
         {
             var the_top = $(this).scrollTop();
@@ -529,10 +529,18 @@ var trump = {
             if ( the_top > trigger_height)
             {
                 $('#stage').addClass('scrolled');
+                console.log($(window).height());
+                if ( margin_set === 0 )
+                {
+                    margin_set = 1;
+                    var m = (h*-1) + 145;
+                    $('#actor').css('margin-top', m + 'px');
+                }
             }
             else if( the_top < trigger_height)
             {
                 $('#stage').removeClass('scrolled');
+                $('#actor').css('margin-top', 0);
             }
         }
             
