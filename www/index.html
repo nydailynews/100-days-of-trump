@@ -361,6 +361,7 @@ p#byline {
 }
 article {
     width: 100%;
+    margin-bottom: 100px;
 }
 article > div {
     margin: 0 auto;
@@ -452,7 +453,7 @@ article img.left {
     width: 100%;
 }
 .scrolled + p + article {
-    margin-top: 350px;
+    margin-top: 380px; /* HEIGHT ADJUST */
 }
 .scrolled h1 {
     position: fixed;
@@ -472,28 +473,32 @@ article img.left {
     text-align: center;
     font-family: "PT Serif", serif;
     width: 80%;
-    margin: 0 auto 10px auto;
+    padding-top: 20px;
+    margin: 0 auto 20px auto;
     font-size: 28px;
     line-height: 28px;
+}
+.handheld #ani { display: none; }
+.handheld .scrolled {
+    width: 100%;
+    background-color: white;
+    min-height: 50px;
 }
 @media screen and (max-width: 1024px) and (min-width: 642px) {
     h1 { font-size: 60px; }
     article { padding: 0 20px; }
     #rh-subnav #rh-subnav-wrap #ra-share-top { margin-top: 9px; }
+    .scrolled h1 { margin: 40px auto; }
+    #nydailynews .scrolled + p + article { margin-top: 50px; }
+    .handheld .scrolled { min-height: 80px; }
 }
 @media screen and (max-width: 642px) {
     h1 { font-size: 40px; }
     .scrolled h1 {
         font-size: 30px;
     }
-    .scrolled {
-        width: 100%;
-        background-color: white;
-        min-height: 50px;
-    }
     article { margin: 0 5px; }
     article img.tweet { max-width: 100%; }
-    div#ani { display: none; }
     #rh-subnav #rh-subnav-wrap #ra-share-top { margin-top: 9px; }
     #rh-subnav #rh-subnav-wrap .ra-share-f { margin-left: 23%; }
     #stage p {
@@ -512,14 +517,15 @@ var trump = {
             var id = 'i-' + index;
             $(this).attr('id', id);
         });
-        trigger_height = 265;
+        // HEIGHT ADJUST
+        trigger_height = 295;
         function scroll_fire()
         {
             var the_top = $(this).scrollTop();
             if ( is_mobile ) the_top = window.pageYOffset;
             console.log(document.querySelector('article'))
             //window.alert(the_top + "hi" + document.pageYOffset);
-            if ( the_top > 3000) return false;
+            if ( the_top > 6000) return false;
             if ( the_top > trigger_height)
             {
                 $('#stage').addClass('scrolled');
@@ -549,12 +555,18 @@ var trump = {
 };
 </script>
 <script src="js/jquery.waypoints.js"></script>
+<!--
 <script src="js/skrollr-path.js"></script>
+-->
 <script>
 $(document).ready(function(){
     trump.init(); 
 
-    if ( !is_mobile )
+    if ( is_mobile )
+    {
+        $('#stage, article, main').addClass('handheld');
+    }
+    else
     {
         var pathEasing = skrollr.easingFromPath(document.querySelector('path'), {
             weights: []
