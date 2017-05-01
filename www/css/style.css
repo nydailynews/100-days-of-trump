@@ -60,3 +60,156 @@ div.ad > span {
     color:#999;
     font-family:sans-serif;
 }
+
+p#byline {
+    width: 90%;
+    margin: auto;
+    text-align: center;
+    border-top: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
+}
+article {
+    width: 100%;
+    margin-bottom: 100px;
+}
+article > div {
+    margin: 0 auto;
+    max-width: 1000px;
+    min-width: 300px;
+}
+article p {
+    font-family: 'PT Serif', serif;
+    font-size: 24px;
+    line-height: 30px;
+}
+h1, h2, h3, h4, h5 {
+    font-family: 'Open Sans Condensed', sans-serif;
+}
+h1 {
+    font-size: 120px;
+    color: red;
+    margin: 40px auto;
+    text-align: center;
+    text-transform: uppercase;
+}
+h2 {
+    font-size: 30px;
+    color: red;
+}
+h3 {
+    font-size: 40px;
+    color: #333;
+}
+h3 span {
+    color: #999;
+}
+h3 span:before {
+    content: '– ';
+}
+
+
+h3 {
+  padding: 10px 0;
+  position: relative;
+  z-index: -1;
+}
+h3[data-approval]:after {
+    padding-left: 15px;
+    content: attr(data-approval) "% approval";
+    color: #666;
+    font-style: italic;
+}
+h3 span:after { }
+
+article img.tweet {
+    display: block;
+    margin: 5px auto;
+    padding: 5px;
+    background-color: white;
+    border: 1px solid #999;
+}
+article img.cutout {
+    width: 100px;
+    float: right;
+}
+article img.capitol {
+    width: 200px;
+    margin-top: -50px;
+}
+article img.left {
+    float: left;
+}
+.scrolled #actor {
+    width:150px;
+    height:212.5px;
+    background-image:url('img/liberty-cart.png');
+    background-size: 150px 212.5px;
+    position: fixed;
+    margin-left: -100px;
+}
+#actor {
+    position: relative;
+}
+.scrolled #actor { margin-top: -570px; }
+
+.clear { clear: both; }
+
+.scrolled {
+    position: fixed;
+    top: 0;
+    width: 100%;
+}
+.scrolled + p + article {
+    margin-top: 400px; /* HEIGHT ADJUST */
+}
+.scrolled h1 {
+    position: fixed;
+    top: 0;
+    font-size: 60px;
+    margin: 15px auto;
+}
+.scrolled p { display: none; }
+#stage img {
+    width: 100%;
+}
+#stage svg {
+    position: fixed;
+    top:-2230px;
+}
+#stage p {
+    text-align: center;
+    font-family: "PT Serif", serif;
+    width: 80%;
+    padding-top: 20px;
+    margin: 0 auto 20px auto;
+    font-size: 28px;
+    line-height: 28px;
+}
+.hide { display: none; }
+.handheld #ani { display: none; }
+.handheld .scrolled {
+    width: 100%;
+    background-color: white;
+    min-height: 50px;
+}
+@media screen and (max-width: 1024px) and (min-width: 642px) {
+    h1 { font-size: 60px; }
+    article { padding: 0 20px; }
+    #rh-subnav #rh-subnav-wrap #ra-share-top { margin-top: 9px; }
+    .scrolled h1 { margin: 40px auto; }
+    #nydailynews .scrolled + p + article { margin-top: 50px; }
+    .handheld .scrolled { min-height: 80px; }
+}
+@media screen and (max-width: 642px) {
+    h1 { font-size: 40px; }
+    .scrolled h1 {
+        font-size: 30px;
+    }
+    article { margin: 0 5px; }
+    article img.tweet { max-width: 100%; }
+    #rh-subnav #rh-subnav-wrap #ra-share-top { margin-top: 9px; }
+    #rh-subnav #rh-subnav-wrap .ra-share-f { margin-left: 23%; }
+    #stage p {
+        font-size: 26px;
+    }
+}
