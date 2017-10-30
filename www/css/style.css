@@ -142,7 +142,7 @@ article img.left {
 .scrolled #actor {
     width:150px;
     height:212.5px;
-    background-image:url('img/liberty-cart.png');
+    background-image:url('../img/liberty-cart.png');
     background-size: 150px 212.5px;
     position: fixed;
     margin-left: -100px;
